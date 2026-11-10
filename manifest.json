@@ -1,11 +1,11 @@
 {
   "classification": "Public",
-  "name": "Combined Outlook and Teams Winter Readiness Copilot Demos",
-  "status": "draft-local",
+  "name": "Outlook and Teams Copilot Follow-Along Demos",
+  "status": "active",
   "githubOwner": "AndrewConniff",
   "githubRepository": "Outlook-Teams-TireDemos",
   "fictionalCompany": "MapleWheel Retail Group",
-  "audienceContext": "Canadian Tire stores and head office (new/light Copilot users)",
+  "audienceContext": "Commercial M365 users (new/light Copilot users) in Outlook and Teams",
   "technologyFocus": [
     "Microsoft 365 Copilot in Outlook",
     "Microsoft 365 Copilot in Teams"
@@ -14,7 +14,7 @@
   "locale": "en-CA",
   "currency": "CAD",
   "measurementSystem": "metric",
-  "sourceType": "Synthetic fictional data",
+  "sourceType": "Follow-along with tenant data plus optional synthetic support files",
   "files": [
     "README.md",
     "index.html",
@@ -22,10 +22,13 @@
     "LICENSE",
     "manifest.json",
     "demo/DEMO-INSTRUCTIONS.md",
-    "demo/DEMO-INSTRUCTIONS.docx"
+    "demo/DEMO-INSTRUCTIONS.docx",
+    "demo/sample-data/shared/Winter-Tire-Delay-Briefing.docx",
+    "demo/sample-data/shared/Canada-Wide-Winter-Tire-Sales-Weather-2023-2026.xlsx",
+    "demo/sample-data/shared/Analyst-to-Outlook-Teams-Workflow.md"
   ],
   "sampleDataRoot": "demo/sample-data/",
   "disclaimer": "This demo uses a fictional Microsoft Fake Company created for demonstration purposes. Any resemblance to real organizations, people, products, services, or data is coincidental. Do not use customer confidential information in this package.",
   "createdDate": "2026-11-09",
-  "lastUpdatedDate": "2026-11-09"
+  "lastUpdatedDate": "2026-11-10"
 }

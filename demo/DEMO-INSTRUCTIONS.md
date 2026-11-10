@@ -1,227 +1,196 @@
-# DEMO-INSTRUCTIONS — Combined Outlook + Teams Session
+# DEMO-INSTRUCTIONS — Follow-Along Outlook + Teams Session
 
 **Classification: Public**  
-**Fictional Company:** MapleWheel Retail Group  
-**Audience context:** Canadian Tire stores + head office (new/light Copilot users)  
-**No agents**
+**Audience context:** new/light Copilot users in commercial Microsoft 365 tenants  
+**Mode:** follow-along (participants can run steps in their own Outlook/Teams)
 
 This demo uses a fictional Microsoft Fake Company created for demonstration purposes. Any resemblance to real organizations, people, products, services, or data is coincidental. Do not use customer confidential information in this package.
 
 ## Demo title
 
-Microsoft 365 Copilot in Outlook and Teams for winter-readiness operations (40 min + 40 min).
+Microsoft 365 Copilot in Outlook and Teams — follow-along winter-readiness communication flow.
 
-## Demo tool
+## Follow-along prerequisites
 
-- Copilot in Outlook (email thread summarization, drafting, coaching, scheduling, triage).
-- Copilot in Teams (channel catch-up, meeting recap, follow-up analysis, post drafting).
+1. Outlook and Teams Copilot access.
+2. At least one real Outlook thread for operational coordination.
+3. At least one Teams meeting you attended with transcript or recording.
+4. Optional sample attachments uploaded to OneDrive/SharePoint:
+   - `Winter-Tire-Delay-Briefing.docx`
+   - `Canada-Wide-Winter-Tire-Sales-Weather-2023-2026.xlsx`
 
-## Files to attach / use
+## Execution context map (what to open before each prompt)
 
-### Outlook
-
-1. `demo/sample-data/outlook/thread-eml/*.eml`
-2. `demo/sample-data/outlook/other-inbox-eml/*.eml`
-3. `demo/sample-data/outlook/Weekly-Auto-Service-Booking-Summary.docx`
-4. `demo/sample-data/outlook/Mailbox-Load-Steps.md`
-
-### Teams
-
-1. `demo/sample-data/teams/Winter-Readiness-Meeting-Script.md`
-2. `demo/sample-data/teams/Winter-Readiness-Transcript.vtt`
-3. `demo/sample-data/teams/Winter-Readiness-Transcript-Fallback.docx`
-4. `demo/sample-data/teams/District-Channel-Posts-Script.md`
-5. `demo/sample-data/teams/Expected-Recap-Reference.docx`
-
-## Outlook demos (40 minutes)
-
-### Execution context map (what to open before each prompt)
-
-| Prompt | Run in | Open this first | Chat-grounding alternative |
+| Prompt | Run in | Open this first | Alternative |
 |---|---|---|---|
-| O1 | Outlook | Shipment thread folder loaded from `thread-eml` | Attach/paste thread in Copilot Chat |
-| O2 | Outlook | Reply draft context + `Weekly-Auto-Service-Booking-Summary.docx` attached | Attach summary doc in Chat |
-| O3 | Outlook | O2 draft email text | Paste O2 text in Chat |
-| O4 | Outlook | Shipment thread conversation | Paste thread summary in Chat |
-| O5 | Outlook | Full inbox with thread + other messages | Paste inbox list/thread in Chat |
-| T1 | Teams | Seeded district channel posts | Paste channel export/posts in Chat |
-| T2 | Teams | Meeting transcript (live or fallback file) | Attach transcript in Chat |
-| T3 | Teams | Same transcript source as T2 | Ask follow-up in Chat from same source |
-| T4 | Teams | Recap output from T2/T3 | Paste recap text in Chat |
-| T5 | Teams live | Active meeting with transcription | Use fallback transcript in Chat |
+| O1 | Outlook | Existing thread you want to update from | Use sample briefing doc and ask Copilot to draft from that |
+| O2 | Outlook | New email draft + attach briefing doc | Use any internal status attachment |
+| O3 | Outlook | O2 draft email body | N/A |
+| O4 | Outlook | Same thread/email context as O2 | N/A |
+| O5 | Outlook | Same O2 email + Analyst chart image from Excel | Use Copilot in Excel chart output pasted manually |
+| T1 | Teams | Meeting recap pane for meeting with transcript/recording | Use fallback transcript doc if needed |
+| T2 | Teams | Same meeting recap context | N/A |
+| T3 | Teams | Same meeting recap + channel/post composer | N/A |
+| T4 | Teams | O5 email summary text + chart image available | Paste from Outlook draft if needed |
+| T5 | Teams | Live meeting in progress with transcript on | Optional |
 
-### O1 — Summarize long thread
+## Outlook follow-along demos (40 min)
 
-**Exact prompt text**
-
-```text
-Summarize this shipment-delay thread for me:
-1) What decisions were made?
-2) What is still open?
-3) Who owns each open item and by when?
-Return a concise status update I can send to head office in under 180 words.
-```
-
-Expected result: concise decision/open-issue summary with ownership and dates.  
-Pass criteria: decisions, open items, and owners match thread evidence.
-
-### O2 — Draft customer-facing reply from short prompt + attachment
+### O1 — Personalize Copilot output style (GA follow-along)
 
 **Exact prompt text**
 
 ```text
-Draft a reply to affected customers confirming revised appointment times.
-Reference the attached Weekly-Auto-Service-Booking-Summary.docx and include:
-- confirmation of the new date/time,
-- a brief apology,
-- what to do if the new time does not work.
-Keep it clear, professional, and in plain en-CA language.
+Based on this thread, draft updates in my preferred style:
+- concise first paragraph
+- action items in bullets
+- clear owner and due date per action
+- friendly but direct tone
 ```
 
-Expected result: practical customer reply with clear next steps.  
-Pass criteria: references revised time, apology, and fallback contact action.
+Expected result: structured draft matching personal communication style.  
+Pass criteria: output is concise, actionable, and readable for direct send/edit.
 
-### O3 — Coaching and empathy rewrite
+### O2 — Draft and send a cross-functional update with attachment summary
 
 **Exact prompt text**
 
 ```text
-Use Copilot coaching to review this reply for tone and clarity.
-Then rewrite it to sound more empathetic while staying concise and professional.
-Keep all operational commitments unchanged.
+Draft an update email to store operations, auto service, and district leadership.
+Summarize the attached Winter-Tire-Delay-Briefing.docx in 5 bullets, then include:
+1) current status
+2) risks
+3) actions by owner
+4) what support is needed
+Use clear en-CA language.
 ```
 
-Expected result: improved tone without changing commitments.  
-Pass criteria: empathy stronger, commitments and timing preserved.
+Expected result: send-ready multi-recipient update grounded in attached doc.  
+Pass criteria: attachment summary is accurate; owners/actions are explicit.
 
-### O4 — Schedule follow-up meeting + agenda
+### O3 — Copilot coaching for clarity and tone
 
 **Exact prompt text**
 
 ```text
-From this email thread, create a follow-up meeting invite for key owners this week.
-Include:
-- a 30-minute meeting title,
-- required attendees,
-- 4 agenda bullets focused on decisions, open risks, and next actions.
+Coach this draft for clarity and tone.
+Then rewrite it to be slightly warmer while keeping the same commitments and dates.
 ```
 
-Expected result: send-ready meeting draft with useful agenda.  
-Pass criteria: attendees and agenda align with thread ownership and open risks.
+Expected result: improved readability and tone without changing commitments.  
+Pass criteria: factual content unchanged; tone clearly improved.
 
-### O5 — Action triage for today
+### O4 — Schedule follow-up meeting and generate agenda
 
 **Exact prompt text**
 
 ```text
-Based on today’s inbox and the shipment thread, tell me which messages need action today.
-Group as:
-1) urgent today,
-2) today if time allows,
-3) FYI only.
-For each action item, include one suggested next step.
+Create a 30-minute follow-up meeting from this thread/update.
+Include required attendees and an agenda with:
+- decisions needed
+- risk review
+- next-week milestones
+- owner check-in
 ```
 
-Expected result: clear action priority list.  
-Pass criteria: triage reflects message urgency and includes concrete next steps.
+Expected result: meeting invite draft with practical agenda.  
+Pass criteria: attendee list and agenda align with email actions.
 
-**Learner chat question:** Which Copilot output would you send as-is, and which would you always revise first?  
-**Outlook day-one habits:**  
-1. Ask for decisions/open items/owners/due dates in one output.  
-2. Run tone coaching before customer-facing sends.
-
-## Teams demos (40 minutes)
-
-### T1 — Catch up on channel
+### O5 — Analyst chart handoff into Outlook
 
 **Exact prompt text**
 
 ```text
-Catch me up on this district channel for the past week.
-Summarize major updates and highlight anything that needs my reply today.
-Return:
-- 5-7 bullet summary
-- a “Needs my reply” list with who to respond to and why
+Using the summary below and the chart image I inserted from Excel,
+draft a short executive email with:
+- 3 key findings
+- 2 actions
+- 1 ask
 ```
 
-Expected result: concise digest and reply-needed list.  
-Pass criteria: identifies key updates and reply-required posts.
+Expected result: concise executive email ready to send/share.  
+Pass criteria: clearly references chart insights and next actions.
 
-### T2 — Meeting recap with action table
+Learner chat question: **Which Outlook Copilot step saved you the most time today?**  
+Outlook day-one habits:
+1. Ask for owner + due date formatting in every draft.
+2. Run Copilot coaching before sending broad updates.
+
+## Teams follow-along demos (40 min)
+
+### T1 — Use a real meeting recap
 
 **Exact prompt text**
 
 ```text
-Recap this winter-readiness meeting.
-Give me:
-1) key decisions,
-2) action items in a table with Owner | Action | Due date | Status,
-3) one-sentence executive takeaway.
+From this meeting transcript/recording, give me:
+1) key decisions
+2) action items with owner and due date
+3) unresolved questions
 ```
 
-Expected result: decision list + owner/date action table.  
-Pass criteria: action table fields accurately populated from meeting details.
+Expected result: meeting recap with decisions/actions/open issues.  
+Pass criteria: action ownership and dates are explicit.
 
-### T3 — Follow-up on disagreement and unresolved topics
+### T2 — Ask focused follow-up questions
 
 **Exact prompt text**
 
 ```text
-From the meeting, where did people disagree and what is still unresolved?
-List:
-- disagreement points,
-- options proposed,
-- unresolved question(s),
-- what input is needed to close them.
+Where did attendees disagree, what options were proposed, and what input is needed to close the open items?
 ```
 
-Expected result: clear conflict and unresolved-items summary.  
-Pass criteria: disagreement context and unresolved question are explicit and actionable.
+Expected result: clear disagreement analysis with closure path.  
+Pass criteria: unresolved items are concrete and decision-ready.
 
-### T4 — Draft channel post then rewrite shorter/friendlier
+### T3 — Suggested prompts during/after Teams calls
 
 **Exact prompt text**
 
 ```text
-Draft a district channel post from the meeting recap for store teams.
-Then rewrite it to be shorter and friendlier while keeping all critical actions and dates.
+Create 6 follow-up prompts I can use in Teams after meetings:
+2 for recap, 2 for action tracking, 2 for executive communication.
 ```
 
-Expected result: long + short versions of update post.  
-Pass criteria: short version keeps critical owners/dates accurately.
+Expected result: reusable post-meeting prompt set.  
+Pass criteria: prompts are practical and immediately reusable.
 
-### T5 (Optional live) — Join late, ask what I missed
+### T4 — Share Outlook/Analyst summary to Teams audience
 
 **Exact prompt text**
 
 ```text
-I joined this meeting a few minutes late.
-What did I miss so far?
-Give me:
-- key points already covered,
-- decisions made,
-- any action assigned to me.
+Draft a Teams channel post from my Outlook update and chart summary.
+Then rewrite it in a shorter, friendlier style for store teams.
+Keep actions and dates intact.
 ```
 
-Expected result: immediate catch-up summary.  
-Pass criteria: includes decisions and assigned actions relevant to attendee.
+Expected result: channel-ready long + short versions.  
+Pass criteria: short version remains accurate and action-complete.
 
-**Learner poll/chat question:** What Teams Copilot task saves you most time: catch-up, recap, or rewrite?  
-**Teams day-one habits:**  
-1. Always ask for owner/date action tables.  
-2. Ask for shorter audience-friendly rewrites before posting.
+### T5 (Optional) — What did I miss in a live call?
 
-## Build/configure
+**Exact prompt text**
 
-1. Load Outlook `.eml` files using `Mailbox-Load-Steps.md`.
-2. Record the scripted Teams meeting with transcription on (fallback to provided transcript files as needed).
-3. Seed district channel posts from script before running channel catch-up prompt.
+```text
+I joined late. What did I miss so far, and do I have any assigned action?
+```
 
-## Validation
+Expected result: fast late-join catch-up.  
+Pass criteria: assigned tasks are clearly identified.
 
-- Outlook prompts produce traceable decisions, ownership, and customer-ready language.
-- Teams prompts produce clear recap tables, disagreement analysis, and audience-appropriate rewrites.
+Learner poll/chat question: **Which Teams Copilot scenario feels most useful in your daily work: recap, follow-up prompts, or channel rewrite?**  
+Teams day-one habits:
+1. Always request owner/date action tables.
+2. Ask for audience rewrite before posting broadly.
+
+## Analyst-to-Outlook-to-Teams workflow (new)
+
+1. Open `Canada-Wide-Winter-Tire-Sales-Weather-2023-2026.xlsx` in Excel.
+2. Use Analyst/Copilot to create weather vs sales trend chart.
+3. Paste chart into Outlook update (O5).
+4. Post same insight to Teams (T4) with audience rewrite.
 
 ## Cleanup
 
-- Remove imported demo emails/folders from mailbox if re-running with new cohorts.
+- Remove any temporary drafts/test posts if running with live users.

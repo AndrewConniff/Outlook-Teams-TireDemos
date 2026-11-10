@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Outlook + Teams Copilot Demo Session</title>
+  <title>Outlook + Teams Copilot Follow-Along Session</title>
   <style>
     :root {
       --outlook-blue: #0078d4;
@@ -37,18 +37,22 @@
 </head>
 <body>
   <div class="banner outlook-banner">
-    <h1>Outlook + Teams Copilot Demo Session</h1>
-    <div>Classification: Public | Fictional company: MapleWheel Retail Group | en-CA, CAD, metric</div>
+    <h1>Outlook + Teams Copilot Follow-Along Session</h1>
+    <div>Classification: Public | Works in GA commercial Outlook + Teams instances</div>
   </div>
   <main>
     <div class="meta">
-      This demo uses a fictional Microsoft Fake Company created for demonstration purposes. Any resemblance to real organizations, people, products, services, or data is coincidental. Do not use customer confidential information in this package.
+      Follow-along focus: participants work in their own Outlook and Teams data where possible. Use sample files only for attachment/analysis examples.
     </div>
     <div class="links">
       <a href="./README.md">README.md</a>
       <a href="./demo/DEMO-INSTRUCTIONS.md">DEMO-INSTRUCTIONS.md</a>
       <a href="./demo/DEMO-INSTRUCTIONS.docx">DEMO-INSTRUCTIONS.docx</a>
+      <a href="./demo/sample-data/shared/Winter-Tire-Delay-Briefing.docx">Winter-Tire-Delay-Briefing.docx</a>
+      <a href="./demo/sample-data/shared/Canada-Wide-Winter-Tire-Sales-Weather-2023-2026.xlsx">Canada-Wide-Winter-Tire-Sales-Weather-2023-2026.xlsx</a>
+      <a href="./demo/sample-data/shared/Analyst-to-Outlook-Teams-Workflow.md">Analyst workflow</a>
     </div>
+
     <div class="tabs">
       <button class="tab-btn active" onclick="showTab('runbook', this)">Runbook</button>
       <button class="tab-btn" onclick="showTab('storyline', this)">Storyline</button>
@@ -56,87 +60,69 @@
     </div>
 
     <section id="runbook" class="tab-panel active">
-    <h2>Outlook section (40 min)</h2>
-    <div class="links">
-      <a href="./demo/sample-data/outlook/Mailbox-Load-Steps.md">Mailbox load steps</a>
-      <a href="./demo/sample-data/outlook/Weekly-Auto-Service-Booking-Summary.docx">Booking summary attachment</a>
-    </div>
+      <h2>Outlook follow-along (40 min)</h2>
 
-    <div class="prompt"><div class="prompt-head"><strong>O1 Summarize long thread</strong><button onclick="copyPrompt('o1')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Outlook in folder Shipment Delay Thread (imported from thread-eml).</div><pre id="o1">Summarize this shipment-delay thread for me:
-1) What decisions were made?
-2) What is still open?
-3) Who owns each open item and by when?
-Return a concise status update I can send to head office in under 180 words.</pre></div>
-    <div class="prompt"><div class="prompt-head"><strong>O2 Draft revised appointment reply</strong><button onclick="copyPrompt('o2')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Outlook reply window with Weekly-Auto-Service-Booking-Summary.docx attached.</div><pre id="o2">Draft a reply to affected customers confirming revised appointment times.
-Reference the attached Weekly-Auto-Service-Booking-Summary.docx and include:
-- confirmation of the new date/time,
-- a brief apology,
-- what to do if the new time does not work.
-Keep it clear, professional, and in plain en-CA language.</pre></div>
-    <div class="prompt"><div class="prompt-head"><strong>O3 Coaching + empathy rewrite</strong><button onclick="copyPrompt('o3')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Outlook in the draft created from O2.</div><pre id="o3">Use Copilot coaching to review this reply for tone and clarity.
-Then rewrite it to sound more empathetic while staying concise and professional.
-Keep all operational commitments unchanged.</pre></div>
-    <div class="prompt"><div class="prompt-head"><strong>O4 Schedule follow-up meeting + agenda</strong><button onclick="copyPrompt('o4')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Outlook thread view in Shipment Delay Thread.</div><pre id="o4">From this email thread, create a follow-up meeting invite for key owners this week.
-Include:
-- a 30-minute meeting title,
-- required attendees,
-- 4 agenda bullets focused on decisions, open risks, and next actions.</pre></div>
-    <div class="prompt"><div class="prompt-head"><strong>O5 Messages needing action today</strong><button onclick="copyPrompt('o5')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Outlook Inbox with both Shipment Delay Thread and Other Messages loaded.</div><pre id="o5">Based on today’s inbox and the shipment thread, tell me which messages need action today.
-Group as:
-1) urgent today,
-2) today if time allows,
-3) FYI only.
-For each action item, include one suggested next step.</pre></div>
+      <div class="prompt"><div class="prompt-head"><strong>O1 Personalize update style</strong><button onclick="copyPrompt('o1')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Outlook, in a real status/coordination thread you already have.</div><pre id="o1">Based on this thread, draft updates in my preferred style:
+- concise first paragraph
+- action items in bullets
+- clear owner and due date per action
+- friendly but direct tone</pre></div>
 
-    <p class="small"><strong>Learner question:</strong> Which Copilot output would you send as-is, and which would you always revise first?</p>
+      <div class="prompt"><div class="prompt-head"><strong>O2 Summarize attached document and draft send</strong><button onclick="copyPrompt('o2')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Outlook new email draft, with Winter-Tire-Delay-Briefing.docx attached.</div><pre id="o2">Draft an update email to store operations, auto service, and district leadership.
+Summarize the attached Winter-Tire-Delay-Briefing.docx in 5 bullets, then include:
+1) current status
+2) risks
+3) actions by owner
+4) what support is needed
+Use clear en-CA language.</pre></div>
 
-    <div class="banner teams-banner">
-      <h2>Teams section (40 min)</h2>
-      <div>Context change: district call + channel catch-up</div>
-    </div>
+      <div class="prompt"><div class="prompt-head"><strong>O3 Coaching for clarity and tone</strong><button onclick="copyPrompt('o3')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Outlook, in the draft generated from O2.</div><pre id="o3">Coach this draft for clarity and tone.
+Then rewrite it to be slightly warmer while keeping the same commitments and dates.</pre></div>
 
-    <div class="links">
-      <a href="./demo/sample-data/teams/Winter-Readiness-Meeting-Script.md">Meeting script</a>
-      <a href="./demo/sample-data/teams/Winter-Readiness-Transcript.vtt">Fallback transcript (.vtt)</a>
-      <a href="./demo/sample-data/teams/Winter-Readiness-Transcript-Fallback.docx">Fallback transcript (.docx)</a>
-      <a href="./demo/sample-data/teams/District-Channel-Posts-Script.md">Channel posts script</a>
-      <a href="./demo/sample-data/teams/Expected-Recap-Reference.docx">Expected recap reference</a>
-    </div>
+      <div class="prompt"><div class="prompt-head"><strong>O4 Schedule follow-up meeting + agenda</strong><button onclick="copyPrompt('o4')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Outlook, same thread/email context as O2.</div><pre id="o4">Create a 30-minute follow-up meeting from this thread/update.
+Include required attendees and an agenda with:
+- decisions needed
+- risk review
+- next-week milestones
+- owner check-in</pre></div>
 
-    <div class="prompt"><div class="prompt-head"><strong>T1 Catch up on channel</strong><button onclick="copyPrompt('t1')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Teams district channel after seeding posts from District-Channel-Posts-Script.md.</div><pre id="t1">Catch me up on this district channel for the past week.
-Summarize major updates and highlight anything that needs my reply today.
-Return:
-- 5-7 bullet summary
-- a “Needs my reply” list with who to respond to and why</pre></div>
-    <div class="prompt"><div class="prompt-head"><strong>T2 Recap meeting and action table</strong><button onclick="copyPrompt('t2')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Teams meeting recap context (live transcript) or fallback transcript file loaded in Teams/Chat.</div><pre id="t2">Recap this winter-readiness meeting.
-Give me:
-1) key decisions,
-2) action items in a table with Owner | Action | Due date | Status,
-3) one-sentence executive takeaway.</pre></div>
-    <div class="prompt"><div class="prompt-head"><strong>T3 Disagreement + unresolved follow-up</strong><button onclick="copyPrompt('t3')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Same meeting context as T2 (do not switch source).</div><pre id="t3">From the meeting, where did people disagree and what is still unresolved?
-List:
-- disagreement points,
-- options proposed,
-- unresolved question(s),
-- what input is needed to close them.</pre></div>
-    <div class="prompt"><div class="prompt-head"><strong>T4 Draft and rewrite channel post</strong><button onclick="copyPrompt('t4')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Teams channel composer with recap output from T2/T3 available.</div><pre id="t4">Draft a district channel post from the meeting recap for store teams.
-Then rewrite it to be shorter and friendlier while keeping all critical actions and dates.</pre></div>
-    <div class="prompt"><div class="prompt-head"><strong>T5 Optional live late-join prompt</strong><button onclick="copyPrompt('t5')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Live Teams meeting where transcription is on (or fallback transcript if no live meeting).</div><pre id="t5">I joined this meeting a few minutes late.
-What did I miss so far?
-Give me:
-- key points already covered,
-- decisions made,
-- any action assigned to me.</pre></div>
+      <div class="prompt"><div class="prompt-head"><strong>O5 Analyst chart handoff email</strong><button onclick="copyPrompt('o5')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Outlook, after pasting one chart image from Excel into draft.</div><pre id="o5">Using the summary below and the chart image I inserted from Excel,
+draft a short executive email with:
+- 3 key findings
+- 2 actions
+- 1 ask</pre></div>
 
-    <p class="small"><strong>Learner poll/chat question:</strong> What Teams Copilot task saves you most time: catch-up, recap, or rewrite?</p>
+      <p class="small"><strong>Learner check:</strong> Which Outlook prompt would you use first in your daily workflow?</p>
+
+      <div class="banner teams-banner">
+        <h2>Teams follow-along (40 min)</h2>
+        <div>Use your own attended meeting with transcript/recording if available.</div>
+      </div>
+
+      <div class="prompt"><div class="prompt-head"><strong>T1 Meeting recap from transcript</strong><button onclick="copyPrompt('t1')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Teams meeting recap for a meeting you attended with transcript/recording.</div><pre id="t1">From this meeting transcript/recording, give me:
+1) key decisions
+2) action items with owner and due date
+3) unresolved questions</pre></div>
+
+      <div class="prompt"><div class="prompt-head"><strong>T2 Follow-up analysis</strong><button onclick="copyPrompt('t2')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Teams, same meeting recap context as T1.</div><pre id="t2">Where did attendees disagree, what options were proposed, and what input is needed to close the open items?</pre></div>
+
+      <div class="prompt"><div class="prompt-head"><strong>T3 Suggested prompts for Teams calls</strong><button onclick="copyPrompt('t3')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Teams meeting recap pane or Copilot in Teams chat.</div><pre id="t3">Create 6 follow-up prompts I can use in Teams after meetings:
+2 for recap, 2 for action tracking, 2 for executive communication.</pre></div>
+
+      <div class="prompt"><div class="prompt-head"><strong>T4 Share Outlook/Analyst summary to Teams</strong><button onclick="copyPrompt('t4')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Teams channel post composer, with Outlook summary text available.</div><pre id="t4">Draft a Teams channel post from my Outlook update and chart summary.
+Then rewrite it in a shorter, friendlier style for store teams.
+Keep actions and dates intact.</pre></div>
+
+      <div class="prompt"><div class="prompt-head"><strong>T5 Optional live late-join</strong><button onclick="copyPrompt('t5')">Copy</button></div><div class="where">WHERE THIS PROMPT HAPPENS: Live Teams meeting with transcript on.</div><pre id="t5">I joined late. What did I miss so far, and do I have any assigned action?</pre></div>
+
+      <p class="small"><strong>Learner poll:</strong> Recap, follow-up prompts, or channel rewrite — which is most useful for you?</p>
     </section>
 
     <section id="storyline" class="tab-panel">
       <h2>Storyline</h2>
       <div class="prep">
-        Outlook: delayed tire shipment + overbooked appointments + weekly head-office status request.
-        <br><br>
-        Teams: district weekly winter-readiness call plus daily channel updates and follow-ups.
+        Follow-along scenario: use your real Outlook/Teams collaboration data to run Copilot workflows for winter-readiness communication.  
+        Optional sample data supports attachment summarization and Analyst chart examples without relying on downloaded conversation packs.
       </div>
     </section>
 
@@ -144,11 +130,11 @@ Give me:
       <h2>Prep checklist</h2>
       <div class="prep">
         <ol>
-          <li>Import Outlook `.eml` files in order and verify folders are complete.</li>
-          <li>Keep booking summary `.docx` ready to attach for O2.</li>
-          <li>Seed Teams channel posts before the session.</li>
-          <li>Record meeting script with transcription on; keep fallback `.vtt` and `.docx` ready.</li>
-          <li>Reset mailbox/channel content before each new delivery.</li>
+          <li>Pick one real Outlook thread and one real Teams meeting with transcript/recording.</li>
+          <li>Upload sample shared docs to OneDrive/SharePoint for attachment practice.</li>
+          <li>Open Excel sample file and create one chart using Analyst/Copilot.</li>
+          <li>Paste chart once into Outlook draft and once into Teams post draft.</li>
+          <li>Use only fictional/sample content in public demonstration outputs.</li>
         </ol>
       </div>
     </section>
