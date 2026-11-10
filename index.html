@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Outlook + Teams Copilot Demo Session</title>
+  <style>
+    :root {
+      --outlook-blue: #0078d4;
+      --teams-purple: #6264a7;
+      --ink: #1f2937;
+      --muted: #4b5563;
+      --panel: #f6f8fb;
+      --accent: #0b57d0;
+    }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--ink); background: #fff; }
+    .banner { color: #fff; padding: 20px 24px; }
+    .banner h1, .banner h2 { margin: 0; }
+    .outlook-banner { background: var(--outlook-blue); }
+    .teams-banner { background: var(--teams-purple); margin-top: 36px; }
+    main { max-width: 1100px; margin: 0 auto; padding: 22px; }
+    .meta { background: var(--panel); border-left: 6px solid var(--outlook-blue); padding: 12px 14px; margin-bottom: 14px; }
+    .links a { display: inline-block; margin: 6px 10px 6px 0; color: var(--accent); text-decoration: none; font-weight: 600; }
+    .prompt { border: 1px solid #dbe3ef; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+    .prompt-head { background: #edf3fb; padding: 10px 12px; display: flex; justify-content: space-between; align-items: center; }
+    .prompt pre { margin: 0; padding: 12px; white-space: pre-wrap; font-family: Consolas, "Courier New", monospace; font-size: 0.9rem; line-height: 1.38; }
+    button { border: none; background: var(--accent); color: #fff; border-radius: 6px; padding: 7px 10px; cursor: pointer; }
+    .small { color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="banner outlook-banner">
+    <h1>Outlook + Teams Copilot Demo Session</h1>
+    <div>Classification: Public | Fictional company: MapleWheel Retail Group | en-CA, CAD, metric</div>
+  </div>
+  <main>
+    <div class="meta">
+      This demo uses a fictional Microsoft Fake Company created for demonstration purposes. Any resemblance to real organizations, people, products, services, or data is coincidental. Do not use customer confidential information in this package.
+    </div>
+    <div class="links">
+      <a href="./README.md">README.md</a>
+      <a href="./demo/DEMO-INSTRUCTIONS.md">DEMO-INSTRUCTIONS.md</a>
+      <a href="./demo/DEMO-INSTRUCTIONS.docx">DEMO-INSTRUCTIONS.docx</a>
+    </div>
+
+    <h2>Outlook section (40 min)</h2>
+    <div class="links">
+      <a href="./demo/sample-data/outlook/Mailbox-Load-Steps.md">Mailbox load steps</a>
+      <a href="./demo/sample-data/outlook/Weekly-Auto-Service-Booking-Summary.docx">Booking summary attachment</a>
+    </div>
+
+    <div class="prompt"><div class="prompt-head"><strong>O1 Summarize long thread</strong><button onclick="copyPrompt('o1')">Copy</button></div><pre id="o1">Summarize this shipment-delay thread for me:
+1) What decisions were made?
+2) What is still open?
+3) Who owns each open item and by when?
+Return a concise status update I can send to head office in under 180 words.</pre></div>
+    <div class="prompt"><div class="prompt-head"><strong>O2 Draft revised appointment reply</strong><button onclick="copyPrompt('o2')">Copy</button></div><pre id="o2">Draft a reply to affected customers confirming revised appointment times.
+Reference the attached Weekly-Auto-Service-Booking-Summary.docx and include:
+- confirmation of the new date/time,
+- a brief apology,
+- what to do if the new time does not work.
+Keep it clear, professional, and in plain en-CA language.</pre></div>
+    <div class="prompt"><div class="prompt-head"><strong>O3 Coaching + empathy rewrite</strong><button onclick="copyPrompt('o3')">Copy</button></div><pre id="o3">Use Copilot coaching to review this reply for tone and clarity.
+Then rewrite it to sound more empathetic while staying concise and professional.
+Keep all operational commitments unchanged.</pre></div>
+    <div class="prompt"><div class="prompt-head"><strong>O4 Schedule follow-up meeting + agenda</strong><button onclick="copyPrompt('o4')">Copy</button></div><pre id="o4">From this email thread, create a follow-up meeting invite for key owners this week.
+Include:
+- a 30-minute meeting title,
+- required attendees,
+- 4 agenda bullets focused on decisions, open risks, and next actions.</pre></div>
+    <div class="prompt"><div class="prompt-head"><strong>O5 Messages needing action today</strong><button onclick="copyPrompt('o5')">Copy</button></div><pre id="o5">Based on today’s inbox and the shipment thread, tell me which messages need action today.
+Group as:
+1) urgent today,
+2) today if time allows,
+3) FYI only.
+For each action item, include one suggested next step.</pre></div>
+
+    <p class="small"><strong>Learner question:</strong> Which Copilot output would you send as-is, and which would you always revise first?</p>
+
+    <div class="banner teams-banner">
+      <h2>Teams section (40 min)</h2>
+      <div>Context change: district call + channel catch-up</div>
+    </div>
+
+    <div class="links">
+      <a href="./demo/sample-data/teams/Winter-Readiness-Meeting-Script.md">Meeting script</a>
+      <a href="./demo/sample-data/teams/Winter-Readiness-Transcript.vtt">Fallback transcript (.vtt)</a>
+      <a href="./demo/sample-data/teams/Winter-Readiness-Transcript-Fallback.docx">Fallback transcript (.docx)</a>
+      <a href="./demo/sample-data/teams/District-Channel-Posts-Script.md">Channel posts script</a>
+      <a href="./demo/sample-data/teams/Expected-Recap-Reference.docx">Expected recap reference</a>
+    </div>
+
+    <div class="prompt"><div class="prompt-head"><strong>T1 Catch up on channel</strong><button onclick="copyPrompt('t1')">Copy</button></div><pre id="t1">Catch me up on this district channel for the past week.
+Summarize major updates and highlight anything that needs my reply today.
+Return:
+- 5-7 bullet summary
+- a “Needs my reply” list with who to respond to and why</pre></div>
+    <div class="prompt"><div class="prompt-head"><strong>T2 Recap meeting and action table</strong><button onclick="copyPrompt('t2')">Copy</button></div><pre id="t2">Recap this winter-readiness meeting.
+Give me:
+1) key decisions,
+2) action items in a table with Owner | Action | Due date | Status,
+3) one-sentence executive takeaway.</pre></div>
+    <div class="prompt"><div class="prompt-head"><strong>T3 Disagreement + unresolved follow-up</strong><button onclick="copyPrompt('t3')">Copy</button></div><pre id="t3">From the meeting, where did people disagree and what is still unresolved?
+List:
+- disagreement points,
+- options proposed,
+- unresolved question(s),
+- what input is needed to close them.</pre></div>
+    <div class="prompt"><div class="prompt-head"><strong>T4 Draft and rewrite channel post</strong><button onclick="copyPrompt('t4')">Copy</button></div><pre id="t4">Draft a district channel post from the meeting recap for store teams.
+Then rewrite it to be shorter and friendlier while keeping all critical actions and dates.</pre></div>
+    <div class="prompt"><div class="prompt-head"><strong>T5 Optional live late-join prompt</strong><button onclick="copyPrompt('t5')">Copy</button></div><pre id="t5">I joined this meeting a few minutes late.
+What did I miss so far?
+Give me:
+- key points already covered,
+- decisions made,
+- any action assigned to me.</pre></div>
+
+    <p class="small"><strong>Learner poll/chat question:</strong> What Teams Copilot task saves you most time: catch-up, recap, or rewrite?</p>
+  </main>
+  <script>
+    async function copyPrompt(id) {
+      await navigator.clipboard.writeText(document.getElementById(id).innerText);
+      alert("Copied.");
+    }
+  </script>
+</body>
+</html>

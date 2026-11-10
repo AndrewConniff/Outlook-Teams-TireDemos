@@ -1,0 +1,31 @@
+{
+  "classification": "Public",
+  "name": "Combined Outlook and Teams Winter Readiness Copilot Demos",
+  "status": "draft-local",
+  "githubOwner": "AndrewConniff",
+  "githubRepository": "Outlook-Teams-TireDemos",
+  "fictionalCompany": "MapleWheel Retail Group",
+  "audienceContext": "Canadian Tire stores and head office (new/light Copilot users)",
+  "technologyFocus": [
+    "Microsoft 365 Copilot in Outlook",
+    "Microsoft 365 Copilot in Teams"
+  ],
+  "durationMinutes": 80,
+  "locale": "en-CA",
+  "currency": "CAD",
+  "measurementSystem": "metric",
+  "sourceType": "Synthetic fictional data",
+  "files": [
+    "README.md",
+    "index.html",
+    "AI-CONTENT-DECLARATION.md",
+    "LICENSE",
+    "manifest.json",
+    "demo/DEMO-INSTRUCTIONS.md",
+    "demo/DEMO-INSTRUCTIONS.docx"
+  ],
+  "sampleDataRoot": "demo/sample-data/",
+  "disclaimer": "This demo uses a fictional Microsoft Fake Company created for demonstration purposes. Any resemblance to real organizations, people, products, services, or data is coincidental. Do not use customer confidential information in this package.",
+  "createdDate": "2026-11-09",
+  "lastUpdatedDate": "2026-11-09"
+}
