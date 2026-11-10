@@ -44,6 +44,21 @@ District weekly winter-readiness call across head office merchandising, three St
 
 ## Prompt run order (exact text)
 
+### Where to run each prompt (file + app)
+
+| Prompt | Run in | Open this first | Alternative (Copilot Chat grounding) |
+|---|---|---|---|
+| O1 | Outlook | Folder with imported shipment thread (`thread-eml`) | In Chat, attach or paste the thread messages |
+| O2 | Outlook | Draft/reply context + attach `Weekly-Auto-Service-Booking-Summary.docx` | In Chat, attach booking summary and ask for reply draft |
+| O3 | Outlook | The O2 draft email body | In Chat, paste O2 draft and ask for empathy rewrite |
+| O4 | Outlook | Shipment thread conversation | In Chat, use thread text and ask for invite agenda draft |
+| O5 | Outlook | Inbox with both thread + other messages loaded | In Chat, summarize pasted inbox list and triage |
+| T1 | Teams | District channel seeded with `District-Channel-Posts-Script.md` content | In Chat, paste channel posts and ask for catch-up |
+| T2 | Teams | Recorded meeting transcript OR fallback transcript file | In Chat, attach transcript `.docx`/`.vtt` |
+| T3 | Teams | Same meeting transcript/source as T2 | In Chat, ask follow-up from same transcript |
+| T4 | Teams | Recap output from T2/T3 | In Chat, paste recap and ask for post rewrite |
+| T5 | Teams | Live meeting with transcription on | If no live meeting, use fallback transcript in Chat |
+
 ### Outlook (40 min)
 
 **O1 — Summarize long thread**

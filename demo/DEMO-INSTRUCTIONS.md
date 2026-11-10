@@ -35,6 +35,21 @@ Microsoft 365 Copilot in Outlook and Teams for winter-readiness operations (40 m
 
 ## Outlook demos (40 minutes)
 
+### Execution context map (what to open before each prompt)
+
+| Prompt | Run in | Open this first | Chat-grounding alternative |
+|---|---|---|---|
+| O1 | Outlook | Shipment thread folder loaded from `thread-eml` | Attach/paste thread in Copilot Chat |
+| O2 | Outlook | Reply draft context + `Weekly-Auto-Service-Booking-Summary.docx` attached | Attach summary doc in Chat |
+| O3 | Outlook | O2 draft email text | Paste O2 text in Chat |
+| O4 | Outlook | Shipment thread conversation | Paste thread summary in Chat |
+| O5 | Outlook | Full inbox with thread + other messages | Paste inbox list/thread in Chat |
+| T1 | Teams | Seeded district channel posts | Paste channel export/posts in Chat |
+| T2 | Teams | Meeting transcript (live or fallback file) | Attach transcript in Chat |
+| T3 | Teams | Same transcript source as T2 | Ask follow-up in Chat from same source |
+| T4 | Teams | Recap output from T2/T3 | Paste recap text in Chat |
+| T5 | Teams live | Active meeting with transcription | Use fallback transcript in Chat |
+
 ### O1 — Summarize long thread
 
 **Exact prompt text**
